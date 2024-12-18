@@ -1,0 +1,9 @@
+combustionModel     PaSR;
+
+PaSR
+{
+    deltaT          1e-4;
+    limitT          yes;
+    maxCombustionRate 1e10;
+    minCombustionRate 1e-5;
+}

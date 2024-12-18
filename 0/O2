@@ -1,0 +1,24 @@
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "0";
+    object      O2;
+}
+
+dimensions      [0 0 0 0 0 0 0];  // 無單位
+internalField   uniform 0.21;     // O2 初始濃度
+
+boundaryField
+{
+    defaultFaces
+    {
+        type            zeroGradient;  // 預設為零梯度
+    }
+    candleSurface
+    {
+        type            fixedValue;    // 固定值邊界
+        value           uniform 0.0;   // 燃燒後 O2 濃度為 0
+    }
+}

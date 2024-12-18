@@ -1,0 +1,53 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1912                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      fvSolution;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+solvers
+{
+    ".*"
+    {
+        solver            GAMG;
+        preconditioner    DILU;
+        smoother          GaussSeidel;
+        tolerance         1e-6;
+        relTol            0.1;
+    }
+
+    p
+    {
+        solver            GAMG;
+        preconditioner    DILU;
+        smoother          GaussSeidel;
+        tolerance         1e-6;
+        relTol            0.1;
+    }
+
+    U
+    {
+        solver            PBiCG;
+        preconditioner    DILU;
+        smoother          GaussSeidel;
+        tolerance         1e-6;
+        relTol            0.1;
+    }
+}
+PISO
+{
+    nCorrectors     2;   // 壓力-速度修正次數
+    pRefCell 0;        // 壓力場的參考單元（單元索引）
+    pRefValue 0;  
+    nNonOrthogonalCorrectors 0; // 非正交修正次數（若需要）
+}
+// ************************************************************************* //

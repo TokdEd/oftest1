@@ -1,0 +1,51 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1912                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      fvSchemes;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+divSchemes
+{
+    default         Gauss linear;
+    div(phi,U)      Gauss upwind;
+    div(phi,T)      Gauss upwind;
+    div(phi,hs)     Gauss upwind;
+}
+
+gradSchemes
+{
+    default         Gauss linear;
+    grad(U)         Gauss linear;
+}
+
+laplacianSchemes
+{
+    default         Gauss linear corrected;
+    laplacian(T)    Gauss linear corrected;
+}
+
+interpolationSchemes
+{
+    default         linear;
+    hsmag           linear;
+}
+
+snGradSchemes
+{
+    default         corrected;
+}
+ddtSchemes
+{
+    default Euler;  // 使用歐拉方法離散時間導數
+}
+// ************************************************************************* //

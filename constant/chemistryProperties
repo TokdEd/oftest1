@@ -1,0 +1,21 @@
+chemistry       yes;
+
+thermoType
+{
+    type            heRhoThermo;
+    mixture         reactingMixture;
+    transport       sutherland;
+    thermo          hConst;
+    equationOfState perfectGas;
+    specie          specie;
+    energy          sensibleInternalEnergy;
+}
+
+chemistrySolver ode;
+chemistrySubModel ReitzDiwakar;
+
+reactions        yes;
+
+reactionRateScaling yes;
+
+autoIgnition     no;

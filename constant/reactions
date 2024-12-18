@@ -1,0 +1,28 @@
+species
+(
+    O2 H2O CO2 C12H26 N2
+);
+
+reactions
+(
+    reaction1
+    {
+        type irreversibleArrhenius;
+        reactants
+        {
+            O2      12;
+            C12H26  1;
+        }
+        products
+        {
+            CO2     12;
+            H2O     13;
+        }
+        ArrheniusCoeffs
+        {
+            A       1.0e12;
+            beta    0.0;
+            Ta      15000;
+        }
+    }
+);

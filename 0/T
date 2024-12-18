@@ -1,0 +1,24 @@
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "0";
+    object      T;
+}
+
+dimensions      [0 0 0 1 0 0 0];  // 溫度的單位是 K（開爾文）
+internalField   uniform 300;      // 初始溫度為 300 K
+
+boundaryField
+{
+    defaultFaces
+    {
+        type            zeroGradient;
+    }
+    candleSurface
+    {
+        type            fixedValue;
+        value           uniform 1500; // 燃燒表面溫度 1500 K
+    }
+}

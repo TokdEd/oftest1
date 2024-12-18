@@ -1,0 +1,24 @@
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "0";
+    object      CO2;
+}
+
+dimensions      [0 0 0 0 0 0 0];  // 無單位
+internalField   uniform 0.0001;   // CO2 初始濃度
+
+boundaryField
+{
+    defaultFaces
+    {
+        type            zeroGradient;  // 預設為零梯度
+    }
+    candleSurface
+    {
+        type            fixedValue;    // 固定值邊界
+        value           uniform 1.0;   // 燃燒產物 CO2 濃度
+    }
+}
